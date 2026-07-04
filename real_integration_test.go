@@ -37,10 +37,9 @@ func TestRealCodexRunStreamed(t *testing.T) {
 	defer cancel()
 
 	thread := client.StartThread(ThreadOptions{
-		SandboxMode:          SandboxReadOnly,
-		SkipGitRepoCheck:     true,
-		ModelReasoningEffort: ReasoningMinimal,
-		ApprovalPolicy:       ApprovalNever,
+		SandboxMode:      SandboxReadOnly,
+		SkipGitRepoCheck: true,
+		ApprovalPolicy:   ApprovalNever,
 	})
 	stream, err := thread.RunStreamed(ctx, TextInput("Reply with exactly: codex-sdk-go-ok"), TurnOptions{})
 	if err != nil {
